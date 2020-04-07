@@ -18,14 +18,14 @@ const styles ={
     }
 }
 
- function TodoItem({ todo, index }){
+ function TodoItem({ todo, index, onChange }){
     return(       
     <li style={styles.li}>
         <span>
             <input 
                 type="checkbox" 
                 style={styles.input} 
-                onChange={() => console.log(todo.id)}
+                onChange={() => onChange(todo.id)}
             />     
             <strong>{index + 1}</strong>
             &nbsp;
@@ -39,7 +39,8 @@ const styles ={
 
 TodoItem.propTypes = {
     todo: PropTypes.object.isRequired,
-    index: PropTypes.number
+    index: PropTypes.number,
+    onChange: PropTypes.func.isRequired
 }
 
 export default TodoItem
